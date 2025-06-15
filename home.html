@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpeedTrack - SpeedLog Express</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <style>
         :root {
             /* Cores conforme especificação */
@@ -52,10 +52,20 @@
         }
 
         .landing-logo {
+            display: inline-flex;
+            /* usa flexbox sem quebrar o inline */
+            align-items: flex-end;
+            /* 🔸 alinha ícone e texto pela base */
+            gap: 8px;
+            /* opcional: espaço entre ícone e texto */
             color: var(--primary);
             font-size: 24px;
             font-weight: 700;
             text-decoration: none;
+        }
+
+        .landing-logo .material-symbols-outlined {
+            font-size: 28px;
         }
 
         .landing-hero {
@@ -191,6 +201,20 @@
             font-weight: 700;
         }
 
+        .sidebar-logo {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 8px;
+            color: var(--primary);
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .sidebar-logo .material-symbols-outlined {
+            font-size: 28px;
+        }
+
         .nav-menu {
             list-style: none;
         }
@@ -261,7 +285,7 @@
             align-items: center;
             cursor: pointer;
         }
-
+/*
         .user-avatar {
             width: 36px;
             height: 36px;
@@ -274,6 +298,14 @@
             margin-right: 10px;
             font-weight: 600;
         }
+*/
+        .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
 
         .user-info>div {
             display: flex;
@@ -893,10 +925,24 @@
         }
 
         .login-logo {
+            display: inline-flex;
+            align-items: flex-end;
+            gap: 8px;
             margin-bottom: 30px;
             color: var(--primary);
             font-size: 32px;
             font-weight: 700;
+        }
+
+        .login-logo .material-symbols-outlined {
+            font-size: 38px;
+        }
+
+        .login-logo-portal {
+            margin-bottom: 32px;
+            color: var(--primary);
+            font-size: 16px;
+            font-weight: 500;
         }
 
         .login-title {
@@ -1092,7 +1138,7 @@
     <!-- Landing Page -->
     <div id="landing-page" class="landing-container">
         <header class="landing-header">
-            <a href="#" class="landing-logo">SpeedTrack</a>
+            <a href="#" class="landing-logo"><i class="material-symbols-outlined">delivery_truck_speed</i>SpeedLog</a>
             <button class="btn btn-primary" onclick="showPage('login-page')">
                 Área do Colaborador
             </button>
@@ -1113,7 +1159,7 @@
         <footer class="landing-footer">
             <div class="footer-content">
                 <div class="footer-info">
-                    <p>SpeedTrack Logística Ltda.</p>
+                    <p>SpeedLog Logística Ltda.</p>
                     <p>CNPJ: 12.345.678/0001-99</p>
                     <p>CRN 710/711, Bloco D, Loja 45 - Brasilia/DF</p>
                 </div>
@@ -1130,7 +1176,10 @@
     <!-- Página de Login -->
     <div id="login-page" class="login-container" style="display: none;">
         <div class="login-card">
-            <div class="login-logo">SpeedTrack</div>
+            <div class="login-logo">
+                <i class="material-symbols-outlined">delivery_truck_speed</i>SpeedLog
+            </div>
+            <!-- <div class="login-logo-portal">Portal SpeedTrack</div> -->
             <h1 class="login-title">Bem-vindo de volta</h1>
             <p class="login-subtitle">Faça login para acessar o portal SpeedTrack</p>
 
@@ -1150,7 +1199,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                    <i class="material-icons-outlined">login</i> Entrar
+                    <i class="material-symbols-outlined">login</i> Entrar
                 </button>
             </form>
         </div>
@@ -1161,10 +1210,11 @@
         <div class="login-card">
             <button type="button" class="btn-text" style="margin-bottom: 20px; align-self: flex-start;"
                 onclick="showPage('login-page')">
-                <i class="material-icons-outlined">arrow_back</i> Voltar
+                <i class="material-symbols-outlined">arrow_back</i> Voltar
             </button>
 
-            <div class="login-logo">SpeedTrack</div>
+            <div class="login-logo"><i class="material-symbols-outlined">delivery_truck_speed</i>SpeedLog</div>
+            <div class="login-logo-portal">Portal SpeedTrack</div>
             <h1 class="login-title">Redefinir senha</h1>
             <p class="login-subtitle">Informe seu e-mail para receber o link de redefinição</p>
 
@@ -1175,7 +1225,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                    <i class="material-icons-outlined">send</i> Enviar link de recuperação
+                    <i class="material-symbols-outlined">send</i> Enviar link de recuperação
                 </button>
             </form>
         </div>
@@ -1185,13 +1235,13 @@
     <div id="construction-page" class="construction-container" style="display: none;">
         <div class="construction-content">
             <div class="construction-icon">
-                <i class="material-icons-outlined">construction</i>
+                <i class="material-symbols-outlined">construction</i>
             </div>
             <h1 class="construction-title">Funcionalidade em Desenvolvimento</h1>
             <p class="construction-text">Estamos trabalhando para trazer esta novidade para você. Agradecemos a sua
                 paciência.</p>
             <button class="btn btn-primary" onclick="showDashboard()">
-                <i class="material-icons-outlined">home</i> Voltar para o Início
+                <i class="material-symbols-outlined">home</i> Voltar para o Início
             </button>
         </div>
     </div>
@@ -1201,32 +1251,32 @@
         <!-- Sidebar -->
         <div id="sidebar" class="sidebar">
             <div class="sidebar-header">
-                <h2>SpeedTrack</h2>
+                <h2 class="sidebar-logo"><i class="material-symbols-outlined">delivery_truck_speed</i>SpeedLog</h2>
             </div>
 
             <ul class="nav-menu">
                 <li class="nav-item" id="nav-dashboard">
                     <a href="#" class="nav-link" onclick="showDashboard()">
-                        <i class="material-icons-outlined">dashboard</i>
+                        <i class="material-symbols-outlined">dashboard</i>
                         Dashboard
                         <span class="coming-soon">Em breve</span>
                     </a>
                 </li>
                 <li class="nav-item" id="nav-register">
                     <a href="#" class="nav-link" onclick="showRegisterPage()">
-                        <i class="material-icons-outlined">add_box</i>
+                        <i class="material-symbols-outlined">add_box</i>
                         Registrar Encomenda
                     </a>
                 </li>
                 <li class="nav-item" id="nav-consult">
                     <a href="#" class="nav-link" onclick="showConsultPage()">
-                        <i class="material-icons-outlined">search</i>
+                        <i class="material-symbols-outlined">search</i>
                         Consultar Encomendas
                     </a>
                 </li>
                 <li class="nav-item" id="nav-users">
                     <a href="#" class="nav-link" onclick="showConstructionPage()">
-                        <i class="material-icons-outlined">manage_accounts</i>
+                        <i class="material-symbols-outlined">manage_accounts</i>
                         Gerenciar Usuários
                         <span class="coming-soon">Em breve</span>
                     </a>
@@ -1239,25 +1289,26 @@
             <!-- Header -->
             <div class="header">
                 <button id="mobile-menu-btn" class="mobile-menu-btn">
-                    <i class="material-icons-outlined">menu</i>
+                    <i class="material-symbols-outlined">menu</i>
                 </button>
 
                 <div class="user-menu">
                     <div class="user-info" onclick="toggleDropdown()">
-                        <div class="user-avatar" id="user-avatar">AD</div>
                         <div>
                             <span class="user-name" id="user-name">Admin</span>
                             <span class="user-role" id="user-role">Administrador</span>
                         </div>
-                        <i class="material-icons-outlined">expand_more</i>
+                        <!-- <div class="user-avatar" id="user-avatar">AD</div> -->
+                        <img class="user-avatar" id="user-avatar" src="" alt="Avatar">
+                        <i class="material-symbols-outlined">expand_more</i>
                     </div>
 
                     <div class="dropdown-menu" id="dropdown-menu">
                         <a href="#" class="dropdown-item" onclick="showConstructionPage()">
-                            <i class="material-icons-outlined">person</i> Meu Perfil
+                            <i class="material-symbols-outlined">person</i> Meu Perfil
                         </a>
                         <a href="#" class="dropdown-item" onclick="logout()">
-                            <i class="material-icons-outlined">logout</i> Sair
+                            <i class="material-symbols-outlined">logout</i> Sair
                         </a>
                     </div>
                 </div>
@@ -1271,7 +1322,7 @@
                         <h1 class="page-title">Dashboard</h1>
                         <div id="dashboard-actions">
                             <button class="btn btn-primary" onclick="showRegisterPage()">
-                                <i class="material-icons-outlined">add</i> Registrar Encomenda
+                                <i class="material-symbols-outlined">add</i> Registrar Encomenda
                             </button>
                         </div>
                     </div>
@@ -1280,41 +1331,41 @@
                     <div class="cards-container">
                         <div class="card">
                             <div class="card-title">
-                                <i class="material-icons-outlined">schedule</i> Aguardando Atribuição
+                                <i class="material-symbols-outlined">schedule</i> Aguardando Atribuição
                             </div>
                             <div class="card-value" id="waiting-count">12</div>
                             <div class="card-footer">
-                                <i class="material-icons-outlined">trending_up</i> +2 desde ontem
+                                <i class="material-symbols-outlined">trending_up</i> +2 desde ontem
                             </div>
                         </div>
 
                         <div class="card">
                             <div class="card-title">
-                                <i class="material-icons-outlined">local_shipping</i> Em Trânsito
+                                <i class="material-symbols-outlined">local_shipping</i> Em Trânsito
                             </div>
                             <div class="card-value" id="transit-count">24</div>
                             <div class="card-footer positive">
-                                <i class="material-icons-outlined">trending_down</i> -5 desde ontem
+                                <i class="material-symbols-outlined">trending_down</i> -5 desde ontem
                             </div>
                         </div>
 
                         <div class="card">
                             <div class="card-title">
-                                <i class="material-icons-outlined">done_all</i> Entregues (Hoje)
+                                <i class="material-symbols-outlined">done_all</i> Entregues (Hoje)
                             </div>
                             <div class="card-value" id="delivered-count">38</div>
                             <div class="card-footer positive">
-                                <i class="material-icons-outlined">trending_up</i> +10 desde ontem
+                                <i class="material-symbols-outlined">trending_up</i> +10 desde ontem
                             </div>
                         </div>
 
                         <div class="card">
                             <div class="card-title">
-                                <i class="material-icons-outlined">warning</i> Ocorrências
+                                <i class="material-symbols-outlined">warning</i> Ocorrências
                             </div>
                             <div class="card-value" id="issues-count">3</div>
                             <div class="card-footer negative">
-                                <i class="material-icons-outlined">trending_up</i> +1 desde ontem
+                                <i class="material-symbols-outlined">trending_up</i> +1 desde ontem
                             </div>
                         </div>
                     </div>
@@ -1325,7 +1376,7 @@
                             <h3 class="table-title">Últimas Atualizações</h3>
                             <div class="table-actions">
                                 <button class="btn btn-secondary" onclick="showConsultPage()">
-                                    <i class="material-icons-outlined">list</i> Ver Todas
+                                    <i class="material-symbols-outlined">list</i> Ver Todas
                                 </button>
                             </div>
                         </div>
@@ -1352,14 +1403,14 @@
                     <div class="page-header">
                         <h1 class="page-title">Registrar Encomenda</h1>
                         <button class="btn btn-secondary" onclick="showDashboard()">
-                            <i class="material-icons-outlined">arrow_back</i> Voltar
+                            <i class="material-symbols-outlined">arrow_back</i> Voltar
                         </button>
                     </div>
 
                     <form id="encomenda-form" class="form-container">
                         <div class="form-section">
                             <h3 class="form-section-title">
-                                <i class="material-icons-outlined">receipt</i> Dados da Encomenda
+                                <i class="material-symbols-outlined">receipt</i> Dados da Encomenda
                             </h3>
 
                             <div class="form-row">
@@ -1386,7 +1437,7 @@
 
                         <div class="form-section">
                             <h3 class="form-section-title">
-                                <i class="material-icons-outlined">person</i> Dados do Destinatário
+                                <i class="material-symbols-outlined">person</i> Dados do Destinatário
                             </h3>
 
                             <div class="form-row">
@@ -1440,7 +1491,7 @@
 
                         <div class="form-section">
                             <h3 class="form-section-title">
-                                <i class="material-icons-outlined">inventory</i> Itens da Entrega
+                                <i class="material-symbols-outlined">inventory</i> Itens da Entrega
                             </h3>
 
                             <div id="itens-container">
@@ -1463,7 +1514,7 @@
 
                             <button type="button" class="btn btn-secondary" onclick="addItem()"
                                 style="margin-top: 10px;">
-                                <i class="material-icons-outlined">add</i> Adicionar Item
+                                <i class="material-symbols-outlined">add</i> Adicionar Item
                             </button>
                         </div>
 
@@ -1472,7 +1523,7 @@
                                 Cancelar
                             </button>
                             <button type="submit" class="btn btn-primary">
-                                <i class="material-icons-outlined">save</i> Registrar Encomenda
+                                <i class="material-symbols-outlined">save</i> Registrar Encomenda
                             </button>
                         </div>
                     </form>
@@ -1483,7 +1534,7 @@
                     <div class="page-header">
                         <h1 class="page-title">Consultar Encomendas</h1>
                         <button class="btn btn-secondary" onclick="showDashboard()">
-                            <i class="material-icons-outlined">arrow_back</i> Voltar
+                            <i class="material-symbols-outlined">arrow_back</i> Voltar
                         </button>
                     </div>
 
@@ -1539,10 +1590,10 @@
 
                         <div class="form-actions">
                             <button type="button" class="btn btn-secondary" onclick="resetFilters()">
-                                <i class="material-icons-outlined">clear</i> Limpar Filtros
+                                <i class="material-symbols-outlined">clear</i> Limpar Filtros
                             </button>
                             <button type="button" class="btn btn-primary" onclick="applyFilters()">
-                                <i class="material-icons-outlined">search</i> Aplicar Filtros
+                                <i class="material-symbols-outlined">search</i> Aplicar Filtros
                             </button>
                         </div>
                     </div>
@@ -1552,7 +1603,7 @@
                             <h3 class="table-title">Resultados</h3>
                             <div class="table-actions">
                                 <button class="btn btn-secondary" onclick="exportToCSV()">
-                                    <i class="material-icons-outlined">download</i> Exportar
+                                    <i class="material-symbols-outlined">download</i> Exportar
                                 </button>
                             </div>
                         </div>
@@ -1580,7 +1631,7 @@
                     <div class="page-header">
                         <h1 class="page-title">Detalhes da Encomenda</h1>
                         <button class="btn btn-secondary" onclick="showConsultPage()">
-                            <i class="material-icons-outlined">arrow_back</i> Voltar
+                            <i class="material-symbols-outlined">arrow_back</i> Voltar
                         </button>
                     </div>
 
@@ -1598,7 +1649,7 @@
 
                             <div class="info-card">
                                 <h3 class="info-card-title">
-                                    <i class="material-icons-outlined">business</i> Parceiro Comercial
+                                    <i class="material-symbols-outlined">business</i> Parceiro Comercial
                                 </h3>
                                 <div class="info-row">
                                     <div class="info-label">Nome:</div>
@@ -1612,7 +1663,7 @@
 
                             <div class="info-card">
                                 <h3 class="info-card-title">
-                                    <i class="material-icons-outlined">person</i> Destinatário
+                                    <i class="material-symbols-outlined">person</i> Destinatário
                                 </h3>
                                 <div class="info-row">
                                     <div class="info-label">Nome:</div>
@@ -1634,7 +1685,7 @@
 
                             <div class="info-card">
                                 <h3 class="info-card-title">
-                                    <i class="material-icons-outlined">inventory</i> Itens
+                                    <i class="material-symbols-outlined">inventory</i> Itens
                                 </h3>
 
                                 <table class="items-table">
@@ -1699,12 +1750,12 @@
             <div class="modal-body">
                 <p>Código de Rastreio SpeedTrack: <strong id="success-codigo">SPD-987654</strong></p>
                 <button class="btn btn-secondary" onclick="copyToClipboard('success-codigo')" style="margin-top: 10px;">
-                    <i class="material-icons-outlined">content_copy</i> Copiar Código
+                    <i class="material-symbols-outlined">content_copy</i> Copiar Código
                 </button>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" onclick="closeModalAndRegisterNew('success-modal')">
-                    <i class="material-icons-outlined">add</i> Registrar Nova Encomenda
+                    <i class="material-symbols-outlined">add</i> Registrar Nova Encomenda
                 </button>
             </div>
         </div>
@@ -2375,7 +2426,18 @@
             const user = mockData.currentUser;
             document.getElementById('user-name').textContent = user.name;
             document.getElementById('user-role').textContent = user.role;
-            document.getElementById('user-avatar').textContent = user.name.charAt(0) + (user.name.split(' ')[1] ? user.name.split(' ')[1].charAt(0) : '');
+            // document.getElementById('user-avatar').textContent = user.name.charAt(0) + (user.name.split(' ')[1] ? user.name.split(' ')[1].charAt(0) : '');
+            const avatar = document.getElementById('user-avatar');
+
+if (user.role === 'Administrador') {
+    avatar.src = 'assets/admin.png';
+} else if (user.role === 'Operador de Logística') {
+    avatar.src = 'assets/operator.png';
+} else if (user.role === 'Entregador') {
+    avatar.src = 'assets/courier.png';
+} else {
+    avatar.src = 'assets/default.png'; // optional fallback image
+}
 
             // Mostrar/ocultar itens do menu conforme o perfil
             const isAdmin = user.role === 'Administrador';
@@ -2495,7 +2557,7 @@
                 
                 <div class="form-group" style="align-self: flex-end; margin-bottom: 15px;">
                     <button type="button" class="btn btn-text" onclick="removeItem(this)">
-                        <i class="material-icons-outlined">delete</i>
+                        <i class="material-symbols-outlined">delete</i>
                     </button>
                 </div>
             `;
@@ -2773,7 +2835,7 @@
         function addActionButton(text, icon, onClick, isDestructive = false) {
             const button = document.createElement('button');
             button.className = `btn ${isDestructive ? 'btn-destructive' : 'btn-primary'}`;
-            button.innerHTML = `<i class="material-icons-outlined">${icon}</i> ${text}`;
+            button.innerHTML = `<i class="material-symbols-outlined">${icon}</i> ${text}`;
             button.onclick = onClick;
             document.getElementById('detail-actions').appendChild(button);
         }
@@ -3005,7 +3067,7 @@
             }
 
             toast.innerHTML = `
-                <i class="material-icons-outlined">${icon}</i>
+                <i class="material-symbols-outlined">${icon}</i>
                 ${message}
             `;
 
