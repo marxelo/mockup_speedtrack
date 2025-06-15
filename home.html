@@ -30,7 +30,7 @@
             font-family: 'Inter', sans-serif;
         }
 
-         body {
+        body {
             background-color: var(--bg-gray);
             color: var(--dark-gray);
         }
@@ -1206,14 +1206,15 @@
 
             <ul class="nav-menu">
                 <li class="nav-item" id="nav-dashboard">
-                    <a href="#" class="nav-link active" onclick="showDashboard()">
+                    <a href="#" class="nav-link" onclick="showDashboard()">
                         <i class="material-icons-outlined">dashboard</i>
                         Dashboard
+                        <span class="coming-soon">Em breve</span>
                     </a>
                 </li>
                 <li class="nav-item" id="nav-register">
                     <a href="#" class="nav-link" onclick="showRegisterPage()">
-                        <i class="material-icons-outlined">local_shipping</i>
+                        <i class="material-icons-outlined">add_box</i>
                         Registrar Encomenda
                     </a>
                 </li>
@@ -1225,7 +1226,7 @@
                 </li>
                 <li class="nav-item" id="nav-users">
                     <a href="#" class="nav-link" onclick="showConstructionPage()">
-                        <i class="material-icons-outlined">group</i>
+                        <i class="material-icons-outlined">manage_accounts</i>
                         Gerenciar Usuários
                         <span class="coming-soon">Em breve</span>
                     </a>
@@ -2316,11 +2317,11 @@
             document.getElementById('construction-page').style.display = 'none';
 
             // document.getElementById(pageId).style.display = pageId === 'app-container' ? 'flex' :
-                // pageId === 'landing-page' ? 'flex' : 'block';
-document.getElementById(pageId).style.display =
-    pageId === 'app-container' || pageId === 'landing-page' || pageId === 'login-page'
-        ? 'flex'
-        : 'block';
+            // pageId === 'landing-page' ? 'flex' : 'block';
+            document.getElementById(pageId).style.display =
+                pageId === 'app-container' || pageId === 'landing-page' || pageId === 'login-page'
+                    ? 'flex'
+                    : 'block';
 
 
             if (pageId === 'app-container') {
@@ -2333,18 +2334,21 @@ document.getElementById(pageId).style.display =
             hideAllPages();
             document.getElementById('dashboard-page').style.display = 'block';
             updateDashboard();
+            updateUserInfo();
         }
 
         function showRegisterPage() {
             hideAllPages();
             document.getElementById('register-page').style.display = 'block';
             resetEncomendaForm();
+            updateUserInfo();
         }
 
         function showConsultPage() {
             hideAllPages();
             document.getElementById('consult-page').style.display = 'block';
             applyFilters();
+            updateUserInfo();
         }
 
         function showDetailPage(encomendaId) {
@@ -2394,7 +2398,10 @@ document.getElementById(pageId).style.display =
             document.getElementById('filtro-entregador-row').style.display = isCourier ? 'none' : 'flex';
 
             // Definir item ativo no menu
-            const currentPage = document.querySelector('.page-content > div[style*="display: block"]');
+            // const currentPage = document.querySelector('.page-content > div[style*="display: block"]');
+            const currentPage = [...document.querySelectorAll('.page-content > div')]
+                .find(el => getComputedStyle(el).display !== 'none');
+
             if (currentPage) {
                 const pageId = currentPage.id;
                 document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
